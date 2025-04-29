@@ -13,7 +13,7 @@ from pyngrok import ngrok
 
 # --- 設定 ---
 # モデル名を設定
-MODEL_NAME = "google/gemma-2-2b-jpn-it"  # お好みのモデルに変更可能です
+MODEL_NAME = "google/gemma-3-1b-it"  # お好みのモデルに変更可能です
 print(f"モデル名を設定: {MODEL_NAME}")
 
 # --- モデル設定クラス ---
@@ -170,11 +170,12 @@ async def generate_simple(request: SimpleGenerationRequest):
     try:
         start_time = time.time()
         print(f"シンプルなリクエストを受信: prompt={request.prompt[:100]}..., max_new_tokens={request.max_new_tokens}")  # 長いプロンプトは切り捨て
+        prompt = 'あなたはgemma-3-1b-itです。以下の指示に答えてください。' + request.prompt 
 
         # プロンプトテキストで直接応答を生成
         print("モデル推論を開始...")
         outputs = model(
-            request.prompt,
+            prompt,
             max_new_tokens=request.max_new_tokens,
             do_sample=request.do_sample,
             temperature=request.temperature,
