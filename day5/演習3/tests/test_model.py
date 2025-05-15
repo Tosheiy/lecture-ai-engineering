@@ -108,6 +108,7 @@ def test_model_exists():
         pytest.skip("モデルファイルが存在しないためスキップします")
     assert os.path.exists(MODEL_PATH), "モデルファイルが存在しません"
 
+
 def test_model_persistence(train_model):
     """保存されたモデルが正しく読み込めるか検証"""
     _, X_test, y_test = train_model
