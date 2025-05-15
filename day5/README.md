@@ -102,6 +102,7 @@ python pipeline.py
 
 2. **フォーマットチェック**  
    - black, flake8, などで静的コードチェックを実施
+   - コード自体のフォーマットを綺麗にしてくれる。チームで開発するときは必要！！！
 
 #### 演習2で使用する主なコマンド
 ```bash
@@ -120,7 +121,7 @@ black main.py
 
 1. **CI ツール導入**  
    - GitHub Actions を使用  
-   - `.github/workflows/test.yml` を作成
+   - `.github/workflows/test.yml` を作成。これをおくと上が動く。
 
 1. **CI 結果確認**  
    - プルリクエスト時に自動でチェックを実行 

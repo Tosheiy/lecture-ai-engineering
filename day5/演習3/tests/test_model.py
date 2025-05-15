@@ -109,6 +109,17 @@ def test_model_exists():
     assert os.path.exists(MODEL_PATH), "モデルファイルが存在しません"
 
 
+def test_model_persistence(train_model):
+    """保存されたモデルが正しく読み込めるか検証"""
+    _, X_test, y_test = train_model
+
+    with open(MODEL_PATH, "rb") as f:
+        loaded_model = pickle.load(f)
+
+    y_pred = loaded_model.predict(X_test)
+    assert len(y_pred) == len(y_test), "読み込んだモデルの予測数が一致しません"
+
+
 def test_model_accuracy(train_model):
     """モデルの精度を検証"""
     model, X_test, y_test = train_model
