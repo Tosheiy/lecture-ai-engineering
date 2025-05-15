@@ -60,6 +60,7 @@ def log_model(model, accuracy, params):
             mlflow.log_param(param_name, param_value)
 
         # メトリクスをログ
+        # ここにmlflowの中にたくさん入れいている
         mlflow.log_metric("accuracy", accuracy)
 
         # モデルのシグネチャを推論
@@ -121,3 +122,5 @@ if __name__ == "__main__":
     with open(model_path, "wb") as f:
         pickle.dump(model, f)
     print(f"モデルを {model_path} に保存しました")
+
+##fds
